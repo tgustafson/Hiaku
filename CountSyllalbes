@@ -127,36 +127,39 @@ public class CountSyllables {
 				return 1;
 			}			
 			//check for vowels
-			if(x.charAt(i) == 'a' || x.charAt(i) == 'i' || x.charAt(i) == 'o' || x.charAt(i) == 'u' || x.charAt(i)  == 'e'){
+			if(x.charAt(i) == 'a' || x.charAt(i) == 'i' || x.charAt(i) == 'o' || x.charAt(i) == 'u' || x.charAt(i)  == 'e' || x.charAt(i) == 'y'){
 				num++;
-				//specific rules for the e vowel
-				if(i != 0 && x.charAt(i) == 'e' && (x.charAt(i-1) == 'a' || x.charAt(i-1) == 'i' || x.charAt(i-1) == 'o' || x.charAt(i-1) == 'u')){
+				if(i > 0 && (x.charAt(i-1) == 'a' || x.charAt(i-1) == 'i' || x.charAt(i-1) == 'o' || x.charAt(i-1) == 'u' || x.charAt(i-1)  == 'e')){
 					num--;
-					if(i < 1 && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
-						num++;
-					}
-					//checks for 'ed' ending of word
-					else if(i == x.length()-2 && x.charAt(x.length()-1) == 'd'){
-						num--;
-					}
-					//checks for 'er' ending of word
-					else if(i == x.length()-2 && x.charAt(x.length()-1) == 'r'){
-						num++;
-					}
-					
-					else if(i < 2 && x.charAt(i) == 'e' && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
-						num--;
-					}
 				}
-			}
-			 if(i == x.length() && x.charAt(i) == 'y'){
-				num++;
+					
+				//specific rules for the e vowel			
+				else if(i > 1 && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
+					num++;
+				}
+				//checks for 'ed' ending of word
+				else if(i > 2 && (i == x.length()-2 && x.charAt(x.length()-1) == 'd')){						
+					num--;
+				}
+				//checks for 'er' ending of word
+				else if(i > 2 && (i == x.length()-2 && x.charAt(x.length()-1) == 'r')){
+					num++;
+				}
+				//checks for two chars back
+				else if(i > 2 && x.charAt(i) == 'e' && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
+					num--;
+				}
+				//specific rules for the y vowel
+				if(i == 0 && x.charAt(i) == 'y'){
+					num--;
+				}
 			}	
 		}
 		//every word is at least one syllable
 		if(num == 0){
 			return 1;
 		}
+		System.out.println(x + " : " + num);
 		return num;
 }
 }
