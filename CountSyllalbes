@@ -138,7 +138,7 @@ public class CountSyllables {
 					num++;
 				}
 				//checks for two chars back
-				else if(i > 2 && x.charAt(i) == 'e' && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
+				else if(i > 2 && x.charAt(i) == 'e' && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u' || x.charAt(i-2) == 'e'){
 					num--;
 				}
 			}	
