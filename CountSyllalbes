@@ -124,7 +124,7 @@ public class CountSyllables {
 				return 1;
 			}			
 			//check for vowels
-			if(x.charAt(i) == 'a' || x.charAt(i) == 'i' || x.charAt(i) == 'o' || x.charAt(i) == 'u' || x.charAt(i)  == 'e' || x.charAt(i) == 'y'){
+			if(x.charAt(i) == 'a' || x.charAt(i) == 'i' || x.charAt(i) == 'o' || x.charAt(i) == 'u' || x.charAt(i)  == 'e' || (x.charAt(i) == 'y' && i!=0)){
 				num++;
 				if(i > 0 && (x.charAt(i-1) == 'a' || x.charAt(i-1) == 'i' || x.charAt(i-1) == 'o' || x.charAt(i-1) == 'u' || x.charAt(i-1)  == 'e')){
 					num--;
@@ -139,10 +139,6 @@ public class CountSyllables {
 				}
 				//checks for two chars back
 				else if(i > 2 && x.charAt(i) == 'e' && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
-					num--;
-				}
-				//specific rules for the y vowel
-				if(i == 0 && x.charAt(i) == 'y'){
 					num--;
 				}
 			}	
