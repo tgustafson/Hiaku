@@ -132,11 +132,6 @@ public class CountSyllables {
 				if(i > 0 && (x.charAt(i-1) == 'a' || x.charAt(i-1) == 'i' || x.charAt(i-1) == 'o' || x.charAt(i-1) == 'u' || x.charAt(i-1)  == 'e')){
 					num--;
 				}
-					
-				//specific rules for the e vowel			
-				else if(i > 1 && (x.charAt(i-2) == 'a' || x.charAt(i-2) == 'i' || x.charAt(i-2) == 'o' || x.charAt(i-2) == 'u')){
-					num++;
-				}
 				//checks for 'ed' ending of word
 				else if(i > 2 && (i == x.length()-2 && x.charAt(x.length()-1) == 'd')){						
 					num--;
